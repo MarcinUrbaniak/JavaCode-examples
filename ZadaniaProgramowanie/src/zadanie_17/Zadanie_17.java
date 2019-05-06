@@ -16,7 +16,7 @@ public class Zadanie_17 {
          do dwóch miejsc po przecinku.”
          */
 
-        float x, y, sum, difference, ratio, quoitent;
+        float x, y, sum, difference, ratio, quotient;
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -31,12 +31,12 @@ public class Zadanie_17 {
         sum = x + y;
         difference = x - y;
         ratio = x * y;
-        quoitent = x/y;
+        quotient = x/y;
 
         System.out.printf("Suma wynosi " + "%2.2f\n", sum);
         System.out.printf("Różnica wynosi " + "%2.2f\n", difference);
         System.out.printf("Iloczyn wynosi " + "%2.2f\n", ratio);
-        System.out.printf("Iloraz wybosi " + "%2.2f\n", quoitent);
+        System.out.printf("Iloraz wybosi " + "%2.2f\n", quotient);
 
 
 
