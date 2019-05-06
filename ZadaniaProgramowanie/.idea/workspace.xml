@@ -50,14 +50,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/zadanie_17/Zadanie_17.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="88">
+              <caret line="18" column="52" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/zadanie_18/Zadanie_18.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -82,6 +91,7 @@
         <option value="$PROJECT_DIR$/src/zadanie_15/Zadanie_15.java" />
         <option value="$PROJECT_DIR$/src/zadanie_17/Zadanie_15.java" />
         <option value="$PROJECT_DIR$/src/zadanie_17/Zadanie_17.java" />
+        <option value="$PROJECT_DIR$/src/zadanie_18/Zadanie_18.java" />
       </list>
     </option>
   </component>
@@ -107,12 +117,6 @@
               <item name="ZadaniaProgramowanie" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ZadaniaProgramowanie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ZadaniaProgramowanie" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="zadanie_11" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -122,7 +126,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557160050761" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557161585798" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -139,14 +143,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Zadanie_11" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="zadanie.Zadanie_11" />
-      <module name="ZadaniaProgramowanie" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Zadanie_18">
     <configuration name="Zadanie_12" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="zadanie_12.Zadanie_12" />
       <module name="ZadaniaProgramowanie" />
@@ -199,13 +196,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Zadanie_18" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="zadanie_18.Zadanie_18" />
+      <module name="ZadaniaProgramowanie" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="zadanie_18.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Zadanie_18" />
         <item itemvalue="Application.Zadanie_17" />
         <item itemvalue="Application.Zadanie_14" />
         <item itemvalue="Application.Zadanie_13" />
         <item itemvalue="Application.Zadanie_12" />
-        <item itemvalue="Application.Zadanie_11" />
       </list>
     </recent_temporary>
   </component>
@@ -224,6 +234,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -287,11 +298,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/zadanie_17/Zadanie_17.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="88">
+          <caret line="18" column="52" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/zadanie_18/Zadanie_18.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
