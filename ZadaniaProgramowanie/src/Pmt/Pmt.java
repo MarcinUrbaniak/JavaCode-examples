@@ -2,10 +2,20 @@ package Pmt;
 
 import java.math.BigDecimal;
 
+
+
 public class Pmt {
 
 
     /**
+     * (D7*D9/12)/(1-(1+D9/12)^(-(D11/12)*12))
+     *
+     * where:
+     *
+     * D7 = Finance Amount
+     * D9 = Rate
+     * D11 = Term
+     *
      * A = (Sr(r+1)^N)/(((r+1)^N)-1)
      * gdzie
      * A - rata równa kredytu
@@ -23,12 +33,26 @@ public class Pmt {
     public BigDecimal calculateInstallment(String ammount){
 
         BigDecimal installment = BigDecimal.ZERO;
-        BigDecimal interestRate = new BigDecimal("0.00172");
-        int numberOfinstallments = 36;
+        BigDecimal interestRate = BigDecimal.valueOf(0.00172/12);
+        int  numberOfinstallments =  36;
 
+        BigDecimal a = (new BigDecimal(ammount)).multiply(interestRate);
 
+        System.out.println("a = " + a);
+        BigDecimal b = (interestRate.add(new BigDecimal("1"))).pow(numberOfinstallments);
+
+        System.out.println("b = " + b);
+        BigDecimal c = a.multiply(b);
+
+        System.out.println("c = " + c);
+        BigDecimal d = b.subtract(new BigDecimal("1"));
+        System.out.println("d = " + d);
+        installment = c.divide(d, BigDecimal.ROUND_HALF_EVEN);
+        System.out.println("installment = " + installment);
+        installment = installment.setScale(2, BigDecimal.ROUND_HALF_EVEN);
 
         return installment;
+
     }
 
 }
