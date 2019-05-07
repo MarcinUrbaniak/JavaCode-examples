@@ -4,6 +4,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * „Napisz zgodnie z zasadami programowania obiektowego program, który oblicza pole prostokąta.
+ * Klasa powinna zawierać trzy metody:”
+ *
+ */
+
 public class RectangleField  {
 
     double a, b, field;
