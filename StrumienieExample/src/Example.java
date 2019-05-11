@@ -1,4 +1,5 @@
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Example {
 
@@ -42,11 +43,36 @@ public class Example {
         /**
          * Drukuje liczby od 1 do 9
          * dwa dwukropki to skrócona wersja dla .foreach(value -> (System.out.println(value)
+         * skip - pomija 5 pierwszych wartości
          */
 
         IntStream
                 .range(1, 10)
+                .skip(5)
                 .forEach(System.out::println);
+
+
+        /**
+         * Sumuje dziesięć pierwszych
+         */
+
+        System.out.println(
+                IntStream
+                .range(1,10)
+                .sum()
+        );
+
+
+        /**
+         * Tworzymy strumie teksow, sortujemy, wybieramy pierwszy i wyswietalmy
+         */
+
+        Stream.of("Warszawa", "Kraków", "Katowice", "Wrocław")
+                .sorted()
+                .findFirst()
+                .ifPresent(System.out::println);
+
+
 
     }
 
