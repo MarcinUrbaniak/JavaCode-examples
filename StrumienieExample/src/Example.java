@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -67,12 +69,43 @@ public class Example {
          * Tworzymy strumie teksow, sortujemy, wybieramy pierwszy i wyswietalmy
          */
 
-        Stream.of("Warszawa", "Kraków", "Katowice", "Wrocław")
+        Stream.of("Warszawa", "Kraków", "Katowice", "Wrocław", "Adamowice")
                 .sorted()
                 .findFirst()
                 .ifPresent(System.out::println);
 
 
+/**
+ * Tworzę stumien z tablicy, wybiera rozpoczynające sie na litere b , sortuje i wyświetla
+ */
+        String[] names = {"Katarzyna", "Andrzej", "Barnaba"};
+
+        Arrays.stream(names) //odpowiednik Stream.of(names)
+                .filter(x -> x.startsWith("B"))
+                .sorted()
+                .forEach(System.out::println);
+
+        /**
+         * to samo robimy na kolekcji
+         */
+
+        List<String> stringList = Arrays.asList(names);
+        stringList.stream()
+                .filter(x ->x.startsWith("K") )
+                .sorted()
+                .forEach(System.out::println);
+
+
+        //Wylicza średnią potęg podanych liczb
+        //dwa sposoby lambdy w strumieniach
+
+        Arrays.stream(new int[]{2,4})
+             //   .map(x -> x*x)
+                .map(x -> {
+                    return x * x;
+                })
+                .average()
+                .ifPresent(System.out::println);
 
     }
 
