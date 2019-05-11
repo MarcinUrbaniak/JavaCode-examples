@@ -152,7 +152,7 @@ public class Example {
                     .filter(x -> x.length() > 10)
                     .forEach(System.out::println);
 
-
+            //raz jeszcze, tylko tym razem zapisujemy te dane do kolekcji.
             bands = Files.lines(Paths.get("zespoly.txt")); //Files.lines - tworzy strumien danych obiektem jest
             //kazda linia
 
@@ -160,7 +160,8 @@ public class Example {
             List<String> collect = bands.sorted()
                     .filter(x -> x.length()>10)
                     .map(s -> s.toLowerCase())
-                    .collect(Collectors.toList());
+                    .collect(Collectors.toList()); //klasa collectors z metode to list - produkuje ze strumienia kolekcję
+            // danych
 
             System.out.println("collect = " + collect);
 
@@ -169,6 +170,11 @@ public class Example {
         } finally {
             bands.close();
         }
+
+
+
+
+
 
 
     }
