@@ -9,7 +9,7 @@ public class Example2 {
 
 
         /**
-         * Tworzy strumien z pliku tekstowego zawierajace dane w pliku data.txt
+         * Tworzy strumien z pliku tekstowego zawierajace dane w pliku data.txt - format csv
          * nastepnie pykonuje podzial danych po znaku ","
          * oraz filtruje i zlicza te ktore sa poprawne (maja dlugosc = 3
          */
@@ -22,6 +22,19 @@ public class Example2 {
         rows1.close();
 
         System.out.println("rowCount = " + rowCount);
+
+/**
+ * Teraz dodajemy warunek na 2 kolumnę x[1] z wykorzystaniem partowania do inta
+ */
+
+        Stream<String> rows2 = Files.lines(Paths.get("data.txt"));
+
+        rows2.map(x -> x.split(","))
+                .filter(x -> x.length == 3)
+                .filter(x -> Integer.parseInt(x[1]) > 15)
+                .forEach(x -> System.out.println(x[0] + " " + x[1] + " " + x[2]));
+
+        rows2.close();
 
     }
 }
