@@ -29,5 +29,14 @@ public class Example {
 
         System.out.println("min2 = " + min2);
 
+
+
+        IntStream.of(numbers)
+                .distinct()
+                .min()
+                .ifPresent(value -> System.out.println("Consumer: " + value));
+
     }
+
+
 }
