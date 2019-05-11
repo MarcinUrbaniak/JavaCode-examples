@@ -14,28 +14,14 @@ public class Play {
         while (board.checkBoard()) {
             PrintBoard.printCurrentBoard(board);
             board.getMove(player1);
-            if (board.checkBoard()) {
+            System.out.println("czy jest zwyciezca player1? " + board.checkWinner());
+            if (!board.checkBoard()) {
                 break;
             }
             PrintBoard.printCurrentBoard(board);
             board.getMove(player2);
+            System.out.println("czy jest zwyciezca player2? " + board.checkWinner());
         }
-
-//    do {
-//        PrintBoard.printCurrentBoard(board);
-//        board.getMove(player1);
-//        PrintBoard.printCurrentBoard(board);
-//        board.getMove(player2);
-//    } while (board.checkBoard());
-
-
-//    for ( ; board.checkBoard();){
-//        PrintBoard.printCurrentBoard(board);
-//        board.getMove(player1);
-//        PrintBoard.printCurrentBoard(board);
-//        board.getMove(player2);
-//    }
-
 
     }
 

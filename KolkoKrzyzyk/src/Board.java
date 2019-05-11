@@ -14,8 +14,8 @@ public class Board {
         }
 
     }
-    
-    
+
+
 
     public Value getValueFromBoard(int i, int j) {
         return board[i][j];
@@ -44,7 +44,7 @@ public class Board {
         }
         return false;
     }
-    
+
     public boolean checkBoard(){
        //boolean p = false;
         for (int i = 0; i < 3; i++) {
@@ -54,6 +54,50 @@ public class Board {
                 }
             }
         }
+        return false;
+    }
+
+//    public boolean checkWinner (){
+//        for (int i = 0; i <3 ; i++) {
+//            if(board[i][0].getValueOfField() == board[i][1].getValueOfField() && board[i][0].getValueOfField() == board[i][2].getValueOfField()){
+//                return true;
+//            }
+//        }
+//        for (int i = 0; i < 3 ; i++) {
+//            if(board[0][i].getValueOfField() == board[1][i].getValueOfField() && board[0][i].getValueOfField() == board[2][i].getValueOfField()){
+//                return true;
+//            }
+//        }
+//        if (board[0][0].getValueOfField() == board[1][1].getValueOfField() && board[0][0].getValueOfField() == board[2][2].getValueOfField()){
+//            return true;
+//        }
+//        if (board[0][2].getValueOfField() == board[1][1].getValueOfField() && board[0][2].getValueOfField() == board[2][0].getValueOfField()){
+//            return true;
+//        }
+//        return false;
+//    }
+
+    public boolean checkWinner (){
+        int sum = 0;
+        for (int i = 0; i < 3; i++) {
+            sum = board[0][i].getValueOfField() + board[1][i].getValueOfField() + board[2][i].getValueOfField();
+            if( sum == 3 || sum == -3 ){
+                return true;
+            }
+        }
+        sum = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if(i == j){
+                    sum += board[i][j].getValueOfField();
+                }
+
+            }
+        }
+        if (sum == 3|| sum == -3){
+            return true;
+        }
+
         return false;
     }
 
