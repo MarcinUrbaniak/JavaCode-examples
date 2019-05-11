@@ -1,5 +1,11 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -106,6 +112,64 @@ public class Example {
                 })
                 .average()
                 .ifPresent(System.out::println);
+
+
+
+//to samo starą metodą
+        List<Integer> integerList = new ArrayList<>();
+        integerList = Arrays.asList(2, 4);
+        int sum = 0;
+        int count = 0;
+
+        for (Integer integer: integerList
+             ) {
+            sum += integer*integer;
+            count ++;
+
+        }
+        System.out.println("suma średniej z sumy potęg = " + sum/count);
+
+
+
+        //Tworzy strumien z listy natepnie przeprowadza mapowania oraz filtrowanie
+        List<String> names2 = Arrays.asList("Katarzyna", "Beata", "Antoni");
+
+        names2.stream()
+                .map(String::toLowerCase)
+                .filter(x -> x.startsWith("a"))
+                .forEach(System.out::println);
+
+    /** Pobiera dane z pliku, filtruje i
+    *
+    */
+
+        Stream<String> bands = null;
+
+        try {
+            bands = Files.lines(Paths.get("zespoly.txt")); //Files.lines - tworzy strumien danych obiektem jest
+            //kazda linia
+            bands.sorted()
+                    .filter(x -> x.length() > 10)
+                    .forEach(System.out::println);
+
+
+            bands = Files.lines(Paths.get("zespoly.txt")); //Files.lines - tworzy strumien danych obiektem jest
+            //kazda linia
+
+
+            List<String> collect = bands.sorted()
+                    .filter(x -> x.length()>10)
+                    .map(s -> s.toLowerCase())
+                    .collect(Collectors.toList());
+
+            System.out.println("collect = " + collect);
+
+        } catch (IOException e){
+            e.printStackTrace();
+        } finally {
+            bands.close();
+        }
+
 
     }
 
