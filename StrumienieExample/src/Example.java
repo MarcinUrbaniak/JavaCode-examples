@@ -29,12 +29,24 @@ public class Example {
 
         System.out.println("min2 = " + min2);
 
-
+/**
+ * Strumien z wykorzystaniem lambdy value ->
+ */
 
         IntStream.of(numbers)
                 .distinct()
                 .min()
                 .ifPresent(value -> System.out.println("Consumer: " + value));
+
+
+        /**
+         * Drukuje liczby od 1 do 9
+         * dwa dwukropki to skrócona wersja dla .foreach(value -> (System.out.println(value)
+         */
+
+        IntStream
+                .range(1, 10)
+                .forEach(System.out::println);
 
     }
 
