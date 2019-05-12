@@ -26,7 +26,7 @@ public class Game {
             PrintBoard.printCurrentBoard(board);
             System.out.println("Player 1 ");
             if (playerType1 == PlayerType.HUMAN) {
-                board.getMoveHuman(player1);
+                board.setMoveHuman(player1);
             } else {
                 //board.setMoveComputerRandom(player1);
                 board.setMoveComputer(player1);
@@ -43,7 +43,7 @@ public class Game {
             PrintBoard.printCurrentBoard(board);
             System.out.println("Player 2 ");
             if (playerType2 == PlayerType.HUMAN) {
-                board.getMoveHuman(player2);
+                board.setMoveHuman(player2);
             } else {
                 //board.setMoveComputerRandom(player2);
                 board.setMoveComputer(player2);

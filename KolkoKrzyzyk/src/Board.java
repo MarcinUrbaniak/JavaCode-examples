@@ -24,7 +24,7 @@ public class Board {
         this.board[i][j] = player.getPlayerId();
     }
 
-    public void getMoveHuman(Player player) {
+    public void setMoveHuman(Player player) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj nr wiersza [wartosc od 0 do 2]: ");
         int i = Integer.parseInt(scanner.nextLine());
