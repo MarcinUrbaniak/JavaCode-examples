@@ -2,7 +2,7 @@ public enum Value {
 
     O(1),
     X(-1),
-    PUSTE(0);
+    P(0);
 
 
     public final int valueOfField;

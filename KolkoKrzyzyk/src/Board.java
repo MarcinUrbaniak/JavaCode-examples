@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Board {
@@ -9,7 +9,7 @@ public class Board {
 
         for (int i = 0; i <3 ; i++) {
             for (int j = 0; j <3 ; j++) {
-                board[i][j] = Value.PUSTE;
+                board[i][j] = Value.P;
             }
         }
 
@@ -25,12 +25,36 @@ public class Board {
         this.board[i][j] = player.getPlayerId();
     }
 
-    public void getMove(Player player){
+    public void getMoveHuman(Player player){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj nr wiersza [wartosc od 0 do 2]: ");
         int i = Integer.parseInt(scanner.nextLine());
         System.out.println("Podaj nr kolumny [wartosc od 0 do 2: ");
         int j = Integer.parseInt(scanner.nextLine());
+
+        while (!checkMove(i,j)){
+            System.out.println("Podaj nr wiersza [wartosc od 0 do 2]: ");
+            i = Integer.parseInt(scanner.nextLine());
+            System.out.println("Podaj nr kolumny [wartosc od 0 do 2: ");
+            j = Integer.parseInt(scanner.nextLine());
+        }
+
+        if(checkMove(i,j) && checkBoard()){
+            setValueOnBoard(i,j, player);
+        }
+    }
+
+    public void getMoveComputerRandom(Player player){
+
+        Random random = new Random();
+        int i = random.nextInt(3);
+        int j = random.nextInt(3);
+
+        //Jeżeli pole jest zajęte, to losuj współrzędne jeszcze raz
+        while (!checkMove(i,j)){
+            i = random.nextInt(3);
+            j = random.nextInt(3);
+        }
 
         if(checkMove(i,j) && checkBoard()){
             setValueOnBoard(i,j, player);
@@ -57,34 +81,25 @@ public class Board {
         return false;
     }
 
-//    public boolean checkWinner (){
-//        for (int i = 0; i <3 ; i++) {
-//            if(board[i][0].getValueOfField() == board[i][1].getValueOfField() && board[i][0].getValueOfField() == board[i][2].getValueOfField()){
-//                return true;
-//            }
-//        }
-//        for (int i = 0; i < 3 ; i++) {
-//            if(board[0][i].getValueOfField() == board[1][i].getValueOfField() && board[0][i].getValueOfField() == board[2][i].getValueOfField()){
-//                return true;
-//            }
-//        }
-//        if (board[0][0].getValueOfField() == board[1][1].getValueOfField() && board[0][0].getValueOfField() == board[2][2].getValueOfField()){
-//            return true;
-//        }
-//        if (board[0][2].getValueOfField() == board[1][1].getValueOfField() && board[0][2].getValueOfField() == board[2][0].getValueOfField()){
-//            return true;
-//        }
-//        return false;
-//    }
 
     public boolean checkWinner (){
         int sum = 0;
         for (int i = 0; i < 3; i++) {
             sum = board[0][i].getValueOfField() + board[1][i].getValueOfField() + board[2][i].getValueOfField();
             if( sum == 3 || sum == -3 ){
+
                 return true;
             }
         }
+        sum = 0;
+        for (int i = 0; i < 3; i++) {
+            sum = board[i][0].getValueOfField() + board[i][1].getValueOfField() + board[i][2].getValueOfField();
+            if( sum == 3 || sum == -3 ){
+
+                return true;
+            }
+        }
+
         sum = 0;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
