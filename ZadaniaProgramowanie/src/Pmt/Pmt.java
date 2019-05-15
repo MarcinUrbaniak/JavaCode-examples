@@ -3,7 +3,6 @@ package Pmt;
 import java.math.BigDecimal;
 
 
-
 public class Pmt {
 
 
@@ -37,18 +36,10 @@ public class Pmt {
         int  numberOfinstallments =  36;
 
         BigDecimal a = (new BigDecimal(ammount)).multiply(interestRate);
-
-        System.out.println("a = " + a);
-        BigDecimal b = (interestRate.add(new BigDecimal("1"))).pow(numberOfinstallments);
-
-        System.out.println("b = " + b);
+        BigDecimal b = (interestRate.add(new BigDecimal("1"))).pow(numberOfinstallments);;
         BigDecimal c = a.multiply(b);
-
-        System.out.println("c = " + c);
         BigDecimal d = b.subtract(new BigDecimal("1"));
-        System.out.println("d = " + d);
         installment = c.divide(d, BigDecimal.ROUND_HALF_EVEN);
-        System.out.println("installment = " + installment);
         installment = installment.setScale(2, BigDecimal.ROUND_HALF_EVEN);
 
         return installment;

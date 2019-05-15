@@ -6,8 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Pmt pmt = new Pmt();
-        pmt.calculateInstallment("2000");
+        BigDecimal installment = new Pmt().calculateInstallment("2000");
+        System.out.println(installment);
 
 
 
