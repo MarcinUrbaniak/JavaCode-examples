@@ -75,6 +75,7 @@ public class Board {
         boolean isRandom = true;
         boolean isMove = true;
 
+
         Value value = Value.X;
 
         //szukam wygranej
@@ -206,7 +207,6 @@ public class Board {
     }
 
     public boolean checkBoard() {
-        //boolean p = false;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j].getValueOfField() == 0) {
