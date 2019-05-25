@@ -10,13 +10,12 @@ public class Places {
     private Place place;
 
 
-
-    public  static  List<Place> generatePlaceList (int row, int placeInRow){
+    public static List<Place> generatePlaceList(int row, int placeInRow) {
         List<Place> placeList = new ArrayList<>();
 
         for (int i = 0; i < row; i++) {
-            for (int j = 0; j < placeInRow ; j++) {
-                Place place = new Place(i,j);
+            for (int j = 0; j < placeInRow; j++) {
+                Place place = new Place(i, j);
                 place.setPlaceStatus(PlaceStatus.WOLNE);
                 placeList.add(place);
             }
@@ -26,11 +25,9 @@ public class Places {
     }
 
 
-
     public Places(List<Place> placesInCinema) {
         this.placesInCinema = placesInCinema;
     }
-
 
 
     public List<Place> getPlacesInCinema() {
@@ -42,28 +39,34 @@ public class Places {
     }
 
 
-    public int getPlaceId(Place place){
+    public int getPlaceId(Place place) {
         return placesInCinema.indexOf(place);
     }
 
 
-    public boolean checkPlaceInPlaces(Place place){
-        if(placesInCinema.contains(place)){
+    public boolean checkPlaceInPlaces(Place place) {
+        if (placesInCinema.contains(place)) {
             return true;
         }
         return false;
     }
 
-    public void setPlaceInSeance(int row, int placeInRow) {
+    public boolean setPlaceInSeance(int row, int placeInRow) {
         if (row >= 0 && placeInRow >= 0) {
             Place place = new Place(row, placeInRow);
 
-            int index = getPlaceId(place);
-            if (placesInCinema.size() > index)
-                placesInCinema.get(index).setPlaceStatus(PlaceStatus.ZAJETE);
-        }
-    }
+            if ((getPlaceId(place) != -1)) {
+                int index = getPlaceId(place);
 
+                if (placesInCinema.size() > index && (placesInCinema.get(index).getPlaceStatus() == PlaceStatus.WOLNE)) {
+                    placesInCinema.get(index).setPlaceStatus(PlaceStatus.ZAJETE);
+                    return true;
+                }
+            }
+
+        }
+        return false;
+    }
 
 
     @Override
