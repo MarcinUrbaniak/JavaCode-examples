@@ -31,14 +31,14 @@ public class Board {
         System.out.println("Podaj nr kolumny [wartosc od 0 do 2: ");
         int j = Integer.parseInt(scanner.nextLine());
 
-        while (!checkMove(i, j)) {
+        while (!checkField(i, j)) {
             System.out.println("Podaj nr wiersza [wartosc od 0 do 2]: ");
             i = Integer.parseInt(scanner.nextLine());
             System.out.println("Podaj nr kolumny [wartosc od 0 do 2: ");
             j = Integer.parseInt(scanner.nextLine());
         }
 
-        if (checkMove(i, j) && checkBoard()) {
+        if (checkField(i, j) && checkBoard()) {
             setValueOnBoard(i, j, player);
         }
     }
@@ -50,12 +50,12 @@ public class Board {
         int j = random.nextInt(3);
 
         //Jeżeli pole jest zajęte, to losuj współrzędne jeszcze raz
-        while (!checkMove(i, j)) {
+        while (!checkField(i, j)) {
             i = random.nextInt(3);
             j = random.nextInt(3);
         }
 
-        if (checkMove(i, j) && checkBoard()) {
+        if (checkField(i, j) && checkBoard()) {
             setValueOnBoard(i, j, player);
         }
     }
@@ -74,7 +74,6 @@ public class Board {
         //komputer zawsze gra X
         boolean isRandom = true;
         boolean isMove = true;
-
 
         Value value = Value.X;
 
@@ -198,18 +197,34 @@ public class Board {
     }
 
 
-    private boolean checkMove(int i, int j) {
-        if (i < 3 && j < 3 && i >= 0 && j >= 0) {
-            if (board[i][j].getValueOfField() == 0)
+    private boolean isOnBoard(int i, int j){
+        if (i < 3 && j < 3 && i >= 0 && j >= 0){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isEmptyField(int i, int j){
+        if (board[i][j].getValueOfField()==0){
+            return true;
+        }
+        return false;
+    }
+
+
+    private boolean checkField(int i, int j) {
+        if (isOnBoard(i, j) && isEmptyField(i, j)) {
+
                 return true;
         }
         return false;
     }
 
     public boolean checkBoard() {
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (board[i][j].getValueOfField() == 0) {
+                if (isEmptyField(i,j)) {
                     return true;
                 }
             }
