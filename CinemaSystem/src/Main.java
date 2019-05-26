@@ -19,8 +19,8 @@ public class Main {
         /**
          * Generowanie listy filmow
          */
-        Movie movie1 = new Movie("Jeden Indiana Jones", "120");
-        Movie movie2 = new Movie("Dwa Powrot do przeszlosci", "180");
+        Movie movie1 = new Movie("Indiana Jones", "120");
+        Movie movie2 = new Movie("Powrot do przeszlosci", "180");
         Movie movie3 = new Movie("Trzy Avengers", "90");
 
         /**

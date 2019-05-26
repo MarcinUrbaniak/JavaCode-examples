@@ -29,6 +29,15 @@ public class Ticket {
         TicketType ticketType = Order.selectTicketType();
         Places places = seance.getPlacesInSeance();
 
+        Place place = getPlace(places);
+
+        Ticket ticket = new Ticket(ticketType, TicketStatus.KUPIONY, place, cinema, seance);
+        System.out.println("Bilet kupiony/zarezerwowany");
+
+        return ticket;
+    }
+
+    private static Place getPlace(Places places) {
         int[] newTab = Order.orderPlace();
         boolean isPlaceInSeance = places.setPlaceInSeance(newTab[0], newTab[1]);
 
@@ -37,11 +46,7 @@ public class Ticket {
             isPlaceInSeance = places.setPlaceInSeance(newTab[0], newTab[1]);
         }
 
-        Place place = new Place(newTab[0], newTab[1]);
-        Ticket ticket = new Ticket(ticketType, TicketStatus.KUPIONY, place, cinema, seance);
-        System.out.println("Bilet kupiony/zarezerwowany");
-
-        return ticket;
+        return new Place(newTab[0], newTab[1]);
     }
 
 

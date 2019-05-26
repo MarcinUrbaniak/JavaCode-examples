@@ -75,7 +75,6 @@ public class Order {
 
     public static int[] orderPlace() {
         System.out.println("Podaj rząd:");
-
         int[] intTab = new int[2];
         Scanner scanner = new Scanner(System.in);
         int row = Integer.parseInt(scanner.nextLine());
