@@ -1,6 +1,7 @@
 package order;
 
 import cinema.*;
+import communication.Order;
 
 public class Ticket {
 
@@ -21,9 +22,48 @@ public class Ticket {
         }
 
     }
+    public static Ticket buyTicket(CinemaSystem cinemaSystem) {
+        System.out.println("Witamy w super systemie rezerwacji i zakupu biletów do kina");
+        Cinema cinema = Order.selectCinema(cinemaSystem);
+        Seance seance = Order.selectSeance(cinema);
+        TicketType ticketType = Order.selectTicketType();
+        Places places = seance.getPlacesInSeance();
+
+        int[] newTab = Order.orderPlace();
+        boolean isPlaceInSeance = places.setPlaceInSeance(newTab[0], newTab[1]);
+
+        while (!isPlaceInSeance) {
+            newTab = Order.orderPlace();
+            isPlaceInSeance = places.setPlaceInSeance(newTab[0], newTab[1]);
+        }
+
+        Place place = new Place(newTab[0], newTab[1]);
+        Ticket ticket = new Ticket(ticketType, TicketStatus.KUPIONY, place, cinema, seance);
+        System.out.println("Bilet kupiony/zarezerwowany");
+
+        return ticket;
+    }
 
 
+    public static Ticket bookTicket(CinemaSystem cinemaSystem){
+        Ticket ticket = Ticket.buyTicket(cinemaSystem);
+        ticket.setTicketStatus(TicketStatus.ZAREZERWOWANY);
 
+        return ticket;
+    }
+
+    public static void cancelTicket(Ticket ticket, Tickets tickets) {
+
+        if (tickets.getTickets().contains(ticket)) {
+            int ticketId = tickets.getTickets().indexOf(ticket);
+            tickets.getTickets().get(ticketId).setTicketStatus(TicketStatus.ANULOWANY);
+            tickets.getTickets().get(ticketId).getPlaceInCinema().setPlaceStatus(PlaceStatus.WOLNE);
+            System.out.println("Bilet anulowany");
+        } else {
+            System.out.println("Nie mamy w systemie zarezerwowanego lub kupionego biletu.");
+
+        }
+    }
 
     public TicketType getTicketType() {
         return ticketType;

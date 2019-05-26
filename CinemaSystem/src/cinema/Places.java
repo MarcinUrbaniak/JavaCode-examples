@@ -7,7 +7,11 @@ import java.util.Objects;
 public class Places {
 
     private List<Place> placesInCinema;
-    private Place place;
+
+
+    public Places(List<Place> placesInCinema) {
+        this.placesInCinema = placesInCinema;
+    }
 
 
     public static List<Place> generatePlaceList(int row, int placeInRow) {
@@ -25,9 +29,25 @@ public class Places {
     }
 
 
-    public Places(List<Place> placesInCinema) {
-        this.placesInCinema = placesInCinema;
+
+    public boolean setPlaceInSeance(int row, int placeInRow) {
+        if (row >= 0 && placeInRow >= 0) {
+            Place place = new Place(row, placeInRow);
+
+            if ((getPlaceId(place) != -1)) {
+                int index = getPlaceId(place);
+
+                if (placesInCinema.size() > index && (placesInCinema.get(index).getPlaceStatus() == PlaceStatus.WOLNE)) {
+                    placesInCinema.get(index).setPlaceStatus(PlaceStatus.ZAJETE);
+                    return true;
+                }
+            }
+
+        }
+        return false;
     }
+
+
 
 
     public List<Place> getPlacesInCinema() {
@@ -47,23 +67,6 @@ public class Places {
     public boolean checkPlaceInPlaces(Place place) {
         if (placesInCinema.contains(place)) {
             return true;
-        }
-        return false;
-    }
-
-    public boolean setPlaceInSeance(int row, int placeInRow) {
-        if (row >= 0 && placeInRow >= 0) {
-            Place place = new Place(row, placeInRow);
-
-            if ((getPlaceId(place) != -1)) {
-                int index = getPlaceId(place);
-
-                if (placesInCinema.size() > index && (placesInCinema.get(index).getPlaceStatus() == PlaceStatus.WOLNE)) {
-                    placesInCinema.get(index).setPlaceStatus(PlaceStatus.ZAJETE);
-                    return true;
-                }
-            }
-
         }
         return false;
     }

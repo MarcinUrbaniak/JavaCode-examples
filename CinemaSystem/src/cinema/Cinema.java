@@ -1,13 +1,24 @@
 package cinema;
 
 
+import java.util.Objects;
 
 public class Cinema {
 
-    Repertory repertoryOfCinema;
 
-    public Cinema(Repertory repertoryOfCinema) {
-        this.repertoryOfCinema = repertoryOfCinema;
+    private String cinemaName;
+    private Repertory repertoryOfCinema;
+
+    public Cinema(String cinemaName) {
+        this.cinemaName = cinemaName;
+    }
+
+    public String getCinemaName() {
+        return cinemaName;
+    }
+
+    public void setCinemaName(String cinemaName) {
+        this.cinemaName = cinemaName;
     }
 
     public Repertory getRepertoryOfCinema() {
@@ -19,9 +30,24 @@ public class Cinema {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cinema cinema = (Cinema) o;
+        return Objects.equals(cinemaName, cinema.cinemaName) &&
+                Objects.equals(repertoryOfCinema, cinema.repertoryOfCinema);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cinemaName, repertoryOfCinema);
+    }
+
+    @Override
     public String toString() {
         return "Cinema{" +
-                "repertoryOfCinema=" + repertoryOfCinema +
+                "cinemaName='" + cinemaName + '\'' +
+                ", repertoryOfCinema=" + repertoryOfCinema +
                 '}';
     }
 }
