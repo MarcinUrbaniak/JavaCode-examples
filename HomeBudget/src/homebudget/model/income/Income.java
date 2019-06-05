@@ -8,10 +8,10 @@ import java.util.Objects;
 
 public class Income {
 
-    Date incomeDateTime;
-    IncomeCategory incomeCategory;
-    Householder householder;
-    double ammount;
+    private Date incomeDateTime;
+    private IncomeCategory incomeCategory;
+    private Householder householder;
+    private double ammount;
 
     public Income(Date incomeDateTime, IncomeCategory incomeCategory, Householder householder, double ammount) {
         this.incomeDateTime = incomeDateTime;

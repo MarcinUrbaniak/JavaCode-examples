@@ -8,11 +8,11 @@ import java.util.Objects;
 
 public class Expense {
 
-    Date expenseDateTime;
-    ExpenseCategory expenseCategory;
-    Householder householder;
-    double ammount;
-    String name;
+   private Date expenseDateTime;
+   private ExpenseCategory expenseCategory;
+   private Householder householder;
+   private double ammount;
+   private String name;
 
 
     public Expense(Date expenseDateTime, ExpenseCategory expenseCategory, Householder householder, double ammount, String name) {
