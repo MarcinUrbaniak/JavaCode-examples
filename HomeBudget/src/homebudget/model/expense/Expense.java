@@ -3,6 +3,7 @@ package homebudget.model.expense;
 import homebudget.model.categories.ExpenseCategory;
 import homebudget.model.householders.Householder;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -15,7 +16,7 @@ public class Expense {
    //private String name;
 
 
-    public Expense(Date expenseDateTime, ExpenseCategory expenseCategory, Householder householder, double ammount) {
+    public Expense(LocalDateTime expenseDateTime, ExpenseCategory expenseCategory, Householder householder, double ammount) {
         this.expenseDateTime = expenseDateTime;
         this.expenseCategory = expenseCategory;
         this.householder = householder;

@@ -10,7 +10,7 @@ public class IncomesModify {
 
         incomes.getIncomes().add(income);
     }
-    
+
 
 
     public static boolean remove(Incomes incomes, Income income){

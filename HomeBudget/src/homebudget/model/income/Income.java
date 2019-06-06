@@ -3,6 +3,7 @@ package homebudget.model.income;
 import homebudget.model.categories.IncomeCategory;
 import homebudget.model.householders.Householder;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -13,7 +14,7 @@ public class Income {
     private Householder householder;
     private double ammount;
 
-    public Income(Date incomeDateTime, IncomeCategory incomeCategory, Householder householder, double ammount) {
+    public Income(LocalDateTime incomeDateTime, IncomeCategory incomeCategory, Householder householder, double ammount) {
         this.incomeDateTime = incomeDateTime;
         this.incomeCategory = incomeCategory;
         this.householder = householder;
