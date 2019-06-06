@@ -1,5 +1,6 @@
 import homebudget.model.data.repository.Expenses;
 import homebudget.model.data.repository.Incomes;
+import homebudget.services.raports.ExpensesRaport;
 import homebudget.userinterface.BootStrap;
 
 public class Main {
@@ -12,6 +13,7 @@ public class Main {
 
         BootStrap.generateData(expenses, incomes);
 
+        ExpensesRaport.perMonthAndCategory(expenses);
 
     }
 }
