@@ -38,7 +38,7 @@ public class BootStrap {
         Expense expense6 = new Expense(LocalDateTime.parse("2019-06-02T12:00:00"), ExpenseCategory.REMONT, Householder.ROBERT, 600);
         Expense expense7 = new Expense(LocalDateTime.parse("2019-07-02T12:00:00"), ExpenseCategory.UBRANIA, Householder.ANDRZEJ, 500);
         Expense expense8 = new Expense(LocalDateTime.parse("2019-03-02T12:00:00"), ExpenseCategory.AUTO, Householder.ANNA, 400);
-        Expense expense9 = new Expense(LocalDateTime.parse("2019-04-02T12:00:00"), ExpenseCategory.AUTO, Householder.ANDRZEJ, 500);
+        Expense expense9 = new Expense(LocalDateTime.parse("2019-04-02T12:00:00"), ExpenseCategory.JEDZENIE, Householder.ANDRZEJ, 500);
         Expense expense10 = new Expense(LocalDateTime.parse("2019-06-02T12:00:00"), ExpenseCategory.AUTO, Householder.ANDRZEJ, 900);
 
         List<Income> incomeList = new ArrayList<>();
