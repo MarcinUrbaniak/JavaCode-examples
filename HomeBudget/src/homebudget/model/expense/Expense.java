@@ -12,15 +12,15 @@ public class Expense {
    private ExpenseCategory expenseCategory;
    private Householder householder;
    private double ammount;
-   private String name;
+   //private String name;
 
 
-    public Expense(Date expenseDateTime, ExpenseCategory expenseCategory, Householder householder, double ammount, String name) {
+    public Expense(Date expenseDateTime, ExpenseCategory expenseCategory, Householder householder, double ammount) {
         this.expenseDateTime = expenseDateTime;
         this.expenseCategory = expenseCategory;
         this.householder = householder;
         this.ammount = ammount;
-        this.name = name;
+        //this.name = name;
     }
 
 
@@ -56,13 +56,6 @@ public class Expense {
         this.ammount = ammount;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -72,23 +65,11 @@ public class Expense {
         return Double.compare(expense.ammount, ammount) == 0 &&
                 Objects.equals(expenseDateTime, expense.expenseDateTime) &&
                 expenseCategory == expense.expenseCategory &&
-                householder == expense.householder &&
-                Objects.equals(name, expense.name);
+                householder == expense.householder;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(expenseDateTime, expenseCategory, householder, ammount, name);
-    }
-
-    @Override
-    public String toString() {
-        return "Expense{" +
-                "expenseDateTime=" + expenseDateTime +
-                ", expenseCategory=" + expenseCategory +
-                ", householder=" + householder +
-                ", ammount=" + ammount +
-                ", name='" + name + '\'' +
-                '}';
+        return Objects.hash(expenseDateTime, expenseCategory, householder, ammount);
     }
 }
