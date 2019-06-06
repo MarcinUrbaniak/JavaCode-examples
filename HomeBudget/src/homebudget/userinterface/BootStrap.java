@@ -10,7 +10,6 @@ import homebudget.model.income.Income;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -21,7 +20,8 @@ public class BootStrap {
      * Generowanie przykladowych danych
      */
 
-    public static void generateData(){
+    public static void generateData(Expenses expenses, Incomes incomes){
+
         Income income1 = new Income(LocalDateTime.parse("2019-04-01T16:00:00"), IncomeCategory.UMOWA_O_PRACE, Householder.ANDRZEJ, 5600.00);
         Income income2 = new Income(LocalDateTime.parse("2019-05-02T16:00:00"), IncomeCategory.B2B, Householder.ANNA, 6600.00);
         Income income3 = new Income(LocalDateTime.parse("2019-06-07T16:00:00"), IncomeCategory.UMOWA_O_PRACE, Householder.ROBERT, 4600.00);
@@ -43,11 +43,12 @@ public class BootStrap {
 
         List<Income> incomeList = new ArrayList<>();
         Collections.addAll(incomeList, income1, income2, income3, income4, income5, income6);
-        Incomes incomes = new Incomes(incomeList);
+        incomes.setIncomes(incomeList);
+
 
         List<Expense> expenseList = new ArrayList<>();
         Collections.addAll(expenseList, expense1, expense2, expense3, expense4, expense5, expense6, expense7, expense8, expense9, expense10);
-        Expenses expenses = new Expenses(expenseList);
+        expenses.setExpenses(expenseList);
 
     }
 

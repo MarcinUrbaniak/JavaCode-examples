@@ -9,6 +9,9 @@ public class Expenses {
 
     private List<Expense> expenses;
 
+    public Expenses() {
+    }
+
     public Expenses(List<Expense> expenses) {
         this.expenses = expenses;
     }

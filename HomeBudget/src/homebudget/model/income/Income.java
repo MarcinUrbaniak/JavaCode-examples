@@ -9,7 +9,7 @@ import java.util.Objects;
 
 public class Income {
 
-    private Date incomeDateTime;
+    private LocalDateTime incomeDateTime;
     private IncomeCategory incomeCategory;
     private Householder householder;
     private double ammount;
@@ -22,11 +22,11 @@ public class Income {
     }
 
 
-    public Date getIncomeDateTime() {
+    public LocalDateTime getIncomeDateTime() {
         return incomeDateTime;
     }
 
-    public void setIncomeDateTime(Date incomeDateTime) {
+    public void setIncomeDateTime(LocalDateTime incomeDateTime) {
         this.incomeDateTime = incomeDateTime;
     }
 

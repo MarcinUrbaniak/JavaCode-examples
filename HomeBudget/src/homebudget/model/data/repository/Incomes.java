@@ -9,6 +9,8 @@ public class Incomes {
 
     private List<Income> incomes;
 
+    public Incomes() {
+    }
 
     public Incomes(List<Income> incomes) {
         this.incomes = incomes;

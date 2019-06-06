@@ -9,7 +9,7 @@ import java.util.Objects;
 
 public class Expense {
 
-   private Date expenseDateTime;
+   private LocalDateTime expenseDateTime;
    private ExpenseCategory expenseCategory;
    private Householder householder;
    private double ammount;
@@ -25,11 +25,11 @@ public class Expense {
     }
 
 
-    public Date getExpenseDateTime() {
+    public LocalDateTime getExpenseDateTime() {
         return expenseDateTime;
     }
 
-    public void setExpenseDateTime(Date expenseDateTime) {
+    public void setExpenseDateTime(LocalDateTime expenseDateTime) {
         this.expenseDateTime = expenseDateTime;
     }
 
@@ -72,5 +72,15 @@ public class Expense {
     @Override
     public int hashCode() {
         return Objects.hash(expenseDateTime, expenseCategory, householder, ammount);
+    }
+
+    @Override
+    public String toString() {
+        return "Expense{" +
+                "expenseDateTime=" + expenseDateTime +
+                ", expenseCategory=" + expenseCategory +
+                ", householder=" + householder +
+                ", ammount=" + ammount +
+                '}';
     }
 }
