@@ -4,8 +4,6 @@ import homebudget.model.categories.ExpenseCategory;
 import homebudget.model.data.repository.Expenses;
 import homebudget.model.expense.Expense;
 import homebudget.model.householders.Householder;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.*;
@@ -26,7 +24,7 @@ public class ExpensesRaport {
 
 
         System.out.println("Rok  | miesiac | osoba | kwota | średnia ");
-        System.out.println("-----------------------------------");
+        System.out.println("------------------------------------------");
         generateView(expenses, "byHouseholder");
     }
 
@@ -48,7 +46,6 @@ public class ExpensesRaport {
             ) {
 
                 if(kindOfRaport.equals("byCategory")){
-
                     for (ExpenseCategory expenseCategory : ExpenseCategory.values()) {
                         double sumOfExpenses = 0;
                         for (Expense expense : expenses.getExpenses()
@@ -74,8 +71,11 @@ public class ExpensesRaport {
                         double sumOfExpensesAverage = 0;
                         for (Expense expense : expenses.getExpenses()
                         ) {
+
                             int yearFromExpense = expense.getExpenseDateTime().getYear();
                             Month monthFromExpense = expense.getExpenseDateTime().getMonth();
+                            LocalDateTime dateMin = LocalDateTime.of(year, month.minus(2),1, 0,0,0);
+                            LocalDateTime dateMax = dateMin.plusMonths(2);
 
                             if (yearFromExpense == year && monthFromExpense.equals(month) &&
                                     expense.getHouseholder().equals(householder)) {
@@ -83,9 +83,6 @@ public class ExpensesRaport {
                                 sumOfExpenses += expense.getAmmount();
 
                             }
-
-                            LocalDateTime dateMin = LocalDateTime.of(year, month.minus(2),1, 0,0,0);
-                            LocalDateTime dateMax = dateMin.plusMonths(2);
 
                             if(expense.getExpenseDateTime().isAfter(dateMin) && expense.getExpenseDateTime().isBefore(dateMax)) {
                                 sumOfExpensesAverage += expense.getAmmount();

@@ -30,10 +30,10 @@ public class BootStrap {
         Income income6 = new Income(LocalDateTime.parse("2019-07-08T16:00:00"), IncomeCategory.UMOWA_O_PRACE, Householder.ANDRZEJ, 5600.00);
 
 
-        Expense expense1 = new Expense(LocalDateTime.parse("2019-04-01T12:00:00"), ExpenseCategory.AUTO, Householder.ANDRZEJ, 600);
+        Expense expense1 = new Expense(LocalDateTime.parse("2019-04-02T12:00:00"), ExpenseCategory.AUTO, Householder.ANDRZEJ, 600);
         Expense expense2 = new Expense(LocalDateTime.parse("2019-05-02T12:00:00"), ExpenseCategory.JEDZENIE, Householder.ANDRZEJ, 500);
         Expense expense3 = new Expense(LocalDateTime.parse("2019-06-02T12:00:00"), ExpenseCategory.OPLATY, Householder.ANDRZEJ, 400);
-        Expense expense4 = new Expense(LocalDateTime.parse("2019-05-31T12:00:00"), ExpenseCategory.OSOBISTE, Householder.ANDRZEJ, 670);
+        Expense expense4 = new Expense(LocalDateTime.parse("2019-05-02T12:00:00"), ExpenseCategory.OSOBISTE, Householder.ANDRZEJ, 670);
         Expense expense5 = new Expense(LocalDateTime.parse("2019-05-02T12:00:00"), ExpenseCategory.AUTO, Householder.ANDRZEJ, 600);
         Expense expense6 = new Expense(LocalDateTime.parse("2019-06-02T12:00:00"), ExpenseCategory.REMONT, Householder.ANDRZEJ, 600);
         Expense expense7 = new Expense(LocalDateTime.parse("2019-07-02T12:00:00"), ExpenseCategory.UBRANIA, Householder.ANDRZEJ, 500);
