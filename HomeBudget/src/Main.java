@@ -13,7 +13,7 @@ public class Main {
 
         BootStrap.generateData(expenses, incomes);
 
-        ExpensesRaport.perMonthAndCategory(expenses);
+        //ExpensesRaport.perMonthAndCategory(expenses);
         System.out.println();
         ExpensesRaport.perMonthAndHouseholder(expenses);
 
