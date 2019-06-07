@@ -44,7 +44,7 @@ public class IncomesRaport {
                         sumOfIncomes += income.getAmmount();
 
                     }
-                    
+
                     LocalDateTime dateMin = LocalDateTime.of(year, month.minus(2), 1, 0, 0, 0);
                     LocalDateTime dateMax = dateMin.plusMonths(2);
 
