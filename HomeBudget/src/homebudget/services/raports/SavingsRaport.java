@@ -28,7 +28,7 @@ public class SavingsRaport {
                     + " | " + savings.getSavingsAverageTwoMonthBefore().get(key) );
         }
 
-        
+
     }
 
 
