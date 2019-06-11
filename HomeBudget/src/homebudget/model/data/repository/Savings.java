@@ -19,8 +19,6 @@ public class Savings {
 
         Set<LocalDate> savingsDate = getSavingDates(incomes, expenses);
 
-//        Map<LocalDate, Double> savingsPerMonth = new HashMap<>();
-//        Map<LocalDate, Double> savingsAverageTwoMonthBefore = new HashMap<>();
 
         for (LocalDate savingDate: savingsDate
              ) {
@@ -62,8 +60,6 @@ public class Savings {
 
             }
 
-
-
             savingsPerMonth.put(savingDate,sumOfIncomesPerMonth - sumOfExpensesPerMonth);
             savingsAverageTwoMonthBefore.put(savingDate, (sumOfIncomesAverage - sumOfExpensesAverage)/2);
 
@@ -80,6 +76,7 @@ public class Savings {
     public Map<LocalDate, Double> getSavingsAverageTwoMonthBefore() {
         return savingsAverageTwoMonthBefore;
     }
+
 
     private static Set<LocalDate> getSavingDates(Incomes incomes, Expenses expenses) {
         Set<LocalDate> savingsDate = new TreeSet<>();

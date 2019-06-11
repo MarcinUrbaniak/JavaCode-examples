@@ -24,16 +24,11 @@ public class SavingsRaport {
 
         for (LocalDate key: keySet
         ) {
-            System.out.println("key.getYear()  = " + key.getYear() );
+            System.out.println(key.getYear() + " | " + key.getMonth() + " | " + savings.getSavingsPerMonth().get(key)
+                    + " | " + savings.getSavingsAverageTwoMonthBefore().get(key) );
         }
 
-
-        System.out.println("savings.getSavingsPerMonth() = " + savings.getSavingsPerMonth());
-        System.out.println("savings.getSavingsAverageTwoMonthBefore() = " + savings.getSavingsAverageTwoMonthBefore());
-
-
-
-
+        
     }
 
 
