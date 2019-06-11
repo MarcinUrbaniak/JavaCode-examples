@@ -12,9 +12,76 @@ import java.util.TreeSet;
 
 public class Savings {
 
+    Map<LocalDate, Double> savingsPerMonth = new HashMap<>();
+    Map<LocalDate, Double> savingsAverageTwoMonthBefore = new HashMap<>();
 
-    public static void calculate(Incomes incomes, Expenses expenses){
+    public void calculate(Incomes incomes, Expenses expenses){
 
+        Set<LocalDate> savingsDate = getSavingDates(incomes, expenses);
+
+//        Map<LocalDate, Double> savingsPerMonth = new HashMap<>();
+//        Map<LocalDate, Double> savingsAverageTwoMonthBefore = new HashMap<>();
+
+        for (LocalDate savingDate: savingsDate
+             ) {
+
+            double sumOfIncomesPerMonth = 0;
+            double sumOfIncomesAverage = 0;
+
+            for (Income income: incomes.getIncomes()
+                 ) {
+                LocalDateTime incomeDate = income.getIncomeDateTime();
+                LocalDateTime dateMin = LocalDateTime.of(savingDate.getYear(),savingDate.getMonth().minus(2),1,0,0,0);
+                LocalDateTime dateMax = dateMin.plusMonths(2);
+
+                if(savingDate.getYear() == incomeDate.getYear() && savingDate.getMonth().equals(incomeDate.getMonth())){
+                    sumOfIncomesPerMonth += income.getAmmount();
+                }
+                if(incomeDate.isAfter(dateMin) && incomeDate.isBefore(dateMax)){
+                    sumOfIncomesAverage += income.getAmmount();
+                }
+            }
+
+            double sumOfExpensesPerMonth = 0;
+            double sumOfExpensesAverage = 0;
+
+            for (Expense expense: expenses.getExpenses()
+                 ) {
+                LocalDateTime expenseDate = expense.getExpenseDateTime();
+                LocalDateTime dateMin = LocalDateTime.of(savingDate.getYear(),savingDate.getMonth().minus(2),1,0,0,0);
+                LocalDateTime dateMax = dateMin.plusMonths(2);
+
+
+                if(savingDate.getYear() == expenseDate.getYear() && savingDate.getMonth().equals(expenseDate.getMonth())){
+                    sumOfExpensesPerMonth += expense.getAmmount();
+                }
+
+                if(expenseDate.isAfter(dateMin) && expenseDate.isBefore(dateMax)){
+                    sumOfExpensesAverage += expense.getAmmount();
+                }
+
+            }
+
+
+
+            savingsPerMonth.put(savingDate,sumOfIncomesPerMonth - sumOfExpensesPerMonth);
+            savingsAverageTwoMonthBefore.put(savingDate, (sumOfIncomesAverage - sumOfExpensesAverage)/2);
+
+        }
+
+
+    }
+
+
+    public Map<LocalDate, Double> getSavingsPerMonth() {
+        return savingsPerMonth;
+    }
+
+    public Map<LocalDate, Double> getSavingsAverageTwoMonthBefore() {
+        return savingsAverageTwoMonthBefore;
+    }
+
+    private static Set<LocalDate> getSavingDates(Incomes incomes, Expenses expenses) {
         Set<LocalDate> savingsDate = new TreeSet<>();
 
         for (Income income: incomes.getIncomes()
@@ -31,42 +98,6 @@ public class Savings {
              ) {
 
         }
-
-        Map<LocalDate, Double> savingsPerMonth = new HashMap<>();
-
-        for (LocalDate savingDate: savingsDate
-             ) {
-
-            double sumOfIncomesPerMonth = 0;
-            for (Income income: incomes.getIncomes()
-                 ) {
-                LocalDateTime incomeDate = income.getIncomeDateTime();
-
-                if(savingDate.getYear() == incomeDate.getYear() && savingDate.getMonth().equals(incomeDate.getMonth())){
-                    sumOfIncomesPerMonth += income.getAmmount();
-                }
-            }
-
-            double sumOfExpensesPerMonth =0;
-            for (Expense expense: expenses.getExpenses()
-                 ) {
-                LocalDateTime expenseDate = expense.getExpenseDateTime();
-
-                if(savingDate.getYear() == expenseDate.getYear() && savingDate.getMonth().equals(expenseDate.getMonth())){
-                    sumOfExpensesPerMonth += expense.getAmmount();
-                }
-            }
-
-
-//            System.out.println("savingDate = " + savingDate);
-//            System.out.println("sumOfIncomesPerMonth = " + sumOfIncomesPerMonth);
-//            System.out.println("sumOfExpensesPerMonth = " + sumOfExpensesPerMonth);
-
-            savingsPerMonth.put(savingDate,sumOfIncomesPerMonth - sumOfExpensesPerMonth);
-
-        }
-
-        System.out.println("savingsPerMonth = " + savingsPerMonth);
-
+        return savingsDate;
     }
 }

@@ -3,6 +3,7 @@ import homebudget.model.data.repository.Incomes;
 import homebudget.model.data.repository.Savings;
 import homebudget.services.raports.ExpensesRaport;
 import homebudget.services.raports.IncomesRaport;
+import homebudget.services.raports.SavingsRaport;
 import homebudget.userinterface.BootStrap;
 
 public class Main {
@@ -17,9 +18,9 @@ public class Main {
 
         //ExpensesRaport.perMonthAndCategory(expenses);
         System.out.println();
-        //ExpensesRaport.perMonthAndHouseholder(expenses);
-        //IncomesRaport.perMonth(incomes);
-        Savings.calculate(incomes,expenses);
+//        ExpensesRaport.perMonthAndHouseholder(expenses);
+//        IncomesRaport.perMonth(incomes);
+        SavingsRaport.genarate(incomes,expenses);
 
     }
 }
