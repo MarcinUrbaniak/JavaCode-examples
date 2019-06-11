@@ -63,6 +63,7 @@ public class Savings {
             savingsPerMonth.put(savingDate,sumOfIncomesPerMonth - sumOfExpensesPerMonth);
             savingsAverageTwoMonthBefore.put(savingDate, (sumOfIncomesAverage - sumOfExpensesAverage)/2);
 
+
         }
 
 

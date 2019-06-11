@@ -21,7 +21,7 @@ public class Expense {
         this.expenseCategory = expenseCategory;
         this.householder = householder;
         this.ammount = ammount;
-        //this.name = name;
+
     }
 
 

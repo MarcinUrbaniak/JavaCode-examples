@@ -6,6 +6,7 @@ import homebudget.model.data.repository.Savings;
 
 import java.time.LocalDate;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class SavingsRaport {
 
@@ -15,8 +16,10 @@ public class SavingsRaport {
         Savings savings = new Savings();
         savings.calculate(incomes, expenses);
 
-        Set<LocalDate> keySet = savings.getSavingsPerMonth().keySet();
+        Set<LocalDate> keySet = new TreeSet<>(savings.getSavingsPerMonth().keySet());
+  
 
+        System.out.println("keySet = " + keySet);
 
         System.out.println("Raport oszczędności");
         System.out.println("Rok  | miesiąc | kwota | średnia ");
