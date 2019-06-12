@@ -18,7 +18,7 @@ public class Main {
         //Generowanie danych automatycznych
         BootStrap.generateData(expenses, incomes);
 
-        //Pobranie danych od uzytkownika (bez kontrolera)
+        //Pobranie danych od uzytkownika
         DataFromUser.expense(expenses);
         DataFromUser.income(incomes);
 
@@ -30,7 +30,7 @@ public class Main {
         ExpensesRaport.perMonthAndHouseholder(expenses);
 
         IncomesRaport.perMonth(incomes);
-        
+
         SavingsRaport.genarate(incomes,expenses);
 
 
