@@ -17,7 +17,7 @@ public class SavingsRaport {
         savings.calculate(incomes, expenses);
 
         Set<LocalDate> keySet = new TreeSet<>(savings.getSavingsPerMonth().keySet());
-  
+
 
         System.out.println("keySet = " + keySet);
 

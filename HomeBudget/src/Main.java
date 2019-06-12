@@ -15,19 +15,22 @@ public class Main {
         Expenses expenses = new Expenses();
         Incomes incomes = new Incomes();
 
+        //Generowanie danych automatycznych
         BootStrap.generateData(expenses, incomes);
 
-
-        //DataFromUser.expense(expenses);
-        //DataFromUser.income(incomes);
-
-
+        //Pobranie danych od uzytkownika (bez kontrolera)
+        DataFromUser.expense(expenses);
+        DataFromUser.income(incomes);
 
 
+
+        //Generowanie raportow
         ExpensesRaport.perMonthAndCategory(expenses);
-        System.out.println();
+
         ExpensesRaport.perMonthAndHouseholder(expenses);
+
         IncomesRaport.perMonth(incomes);
+        
         SavingsRaport.genarate(incomes,expenses);
 
 
