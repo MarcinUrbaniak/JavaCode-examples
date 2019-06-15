@@ -1,0 +1,5 @@
+firstName;lastName;city;salary;age;hasChildren
+Janek;Nowak;Katowice;3000;34;1
+Adam;Cebulak;Warszawa;8999;33;1
+Katarzyna;Wodnik;Zakopane;3000;23;0
+Robert;Cieslak;Warszawa;5000;50;2
