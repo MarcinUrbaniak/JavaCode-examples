@@ -39,5 +39,16 @@ public class Main {
         System.out.println("silnia liczny 3 wynisi " + factorial.func(3));
         System.out.println("silnia liczny 3 wynisi " + factorial.func(5));
 
+        StringFunc reverse = (str) -> {
+            String result = "";
+            for (int i = str.length()-1; i >=0 ; i--) {
+                result += str.charAt(i);
+
+            }
+            return result;
+        };
+
+        System.out.println("Lambda po odwróceniu to: " + reverse.func("Lambda"));
+
     }
 }
