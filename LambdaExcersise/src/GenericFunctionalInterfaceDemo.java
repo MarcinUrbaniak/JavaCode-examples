@@ -11,5 +11,17 @@ public class GenericFunctionalInterfaceDemo {
         };
 
         System.out.println("lambda po odwróceniu " + reverse.func("lambda"));
+
+
+        SomeFunc<Integer> factorial = integer -> {
+            int result = 1;
+            for (int i = 1; i <= integer ; i++) {
+                result *= i;
+            }
+            return result;
+        };
+        System.out.println("Silnia liczby 3 wynosi " + factorial.func(3));
+        System.out.println("Silnia liczby 5 wynosi " + factorial.func(5));
     }
+
 }
