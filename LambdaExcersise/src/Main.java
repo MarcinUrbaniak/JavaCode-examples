@@ -28,7 +28,16 @@ public class Main {
 
         System.out.println(isFactor.test(10, 2));
 
-        \\
+        NumericFunc factorial = (n) -> {
+            int result = 1;
+            for (int i = 1; i <= n ; i++) {
+                result *= i;
+            }
+            return result;
+        };
+
+        System.out.println("silnia liczny 3 wynisi " + factorial.func(3));
+        System.out.println("silnia liczny 3 wynisi " + factorial.func(5));
 
     }
 }
